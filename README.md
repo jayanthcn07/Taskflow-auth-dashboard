@@ -219,7 +219,11 @@ Success Response (200)
 {
   "message": "Task deleted"
 }
+<<<<<<< HEAD
 ```
+=======
+
+>>>>>>> 034e00f (deployement changes)
 
 🔒 Authentication Flow Summary:
 

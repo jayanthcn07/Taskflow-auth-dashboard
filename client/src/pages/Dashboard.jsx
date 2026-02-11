@@ -20,7 +20,7 @@ export default function Dashboard() {
   };
 
   const loadTasks = async () => {
-    const res = await axios.get("http://localhost:5000/api/tasks", {
+    const res = await axios.get("https://taskflow-auth-dashboard.onrender.com/api/tasks", {
       headers: { Authorization: `Bearer ${token}` },
       params: {
         search: search || undefined,
@@ -31,7 +31,7 @@ export default function Dashboard() {
   };
 
   const loadProfile = async () => {
-    const res = await axios.get("http://localhost:5000/api/auth/me", {
+    const res = await axios.get("https://taskflow-auth-dashboard.onrender.com/api/auth/me", {
       headers: { Authorization: `Bearer ${token}` },
     });
     setUser(res.data);
@@ -50,7 +50,7 @@ export default function Dashboard() {
     if (!title.trim()) return;
 
     await axios.post(
-      "http://localhost:5000/api/tasks",
+      "https://taskflow-auth-dashboard.onrender.com/api/tasks",
       { title: title.trim() },
       { headers: { Authorization: `Bearer ${token}` } }
     );
@@ -62,7 +62,7 @@ export default function Dashboard() {
 
   const toggleStatus = async (task) => {
     await axios.put(
-      `http://localhost:5000/api/tasks/${task._id}`,
+      `https://taskflow-auth-dashboard.onrender.com/api/tasks/${task._id}`,
       {
         status: task.status === "pending" ? "completed" : "pending",
       },
@@ -73,7 +73,7 @@ export default function Dashboard() {
   };
 
   const deleteTask = async (id) => {
-    await axios.delete(`http://localhost:5000/api/tasks/${id}`, {
+    await axios.delete(`https://taskflow-auth-dashboard.onrender.com/api/tasks/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     loadTasks();
